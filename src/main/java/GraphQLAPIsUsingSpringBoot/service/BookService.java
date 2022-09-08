@@ -1,10 +1,12 @@
 package GraphQLAPIsUsingSpringBoot.service;
 
 import GraphQLAPIsUsingSpringBoot.entity.Book;
+import com.sun.istack.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 
 @Service
 public interface BookService {
@@ -15,10 +17,10 @@ public interface BookService {
     List<Book> getBooks();
 
     // get Single Book
-    Optional<Book> getBook(Long id);
+    Book getBook(Long id);
 
     // update Book
-    Book updateBook(Long id,Book book);
+    Book updateBook(Long id, Book book);
 
     // delete Book
     void deleteBook(Long id);

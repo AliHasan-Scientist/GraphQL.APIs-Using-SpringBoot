@@ -1,0 +1,17 @@
+#Query
+type Query{
+    books:[Book]
+    book(bookId:Int):Book
+}
+#This is the type of Schema
+type Book{
+    id:ID!
+    name:String
+    coverImage:String
+    type:String
+    description:String
+    author:String
+    popularity:String
+    brand:String
+    pages:Int
+}

@@ -5,12 +5,13 @@ import GraphQLAPIsUsingSpringBoot.repository.BookRepository;
 import GraphQLAPIsUsingSpringBoot.service.BookService;
 import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
+@Service
 public class BookServiceImpl implements BookService {
-
+    @NotNull
     @Autowired
     private BookRepository bookRepository;
 
@@ -25,8 +26,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Optional<Book> getBook(Long id) {
-        Optional<Book> book = this.bookRepository.findById(id);
+    public Book getBook(Long id) {
+        Book book = this.bookRepository.findById(id).orElseThrow(RuntimeException::new);
         return book;
     }
 
